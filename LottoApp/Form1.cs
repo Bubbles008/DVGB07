@@ -44,7 +44,7 @@ namespace LottoApp
 
                 if (!int.TryParse(textDraws.Text.Trim(), out int draws) || draws <= 0)
                 {
-                    MessageBox.Show("Antal dragningar måste vara ett positivt heltal.", "Fel",
+                    MessageBox.Show("Antal dragningar måste vara ett positivt heltal", "Fel",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -84,16 +84,16 @@ namespace LottoApp
                 string s = boxes[i].Text.Trim();
 
                 if (!int.TryParse(s, out int n))
-                    throw new Exception("Alla 7 tal måste vara heltal.");
+                    throw new Exception("Alla 7 tal måste vara heltal");
 
                 if (n < 1 || n > 35)
-                    throw new Exception("Alla tal måste vara mellan 1 och 35.");
+                    throw new Exception("Alla tal måste vara mellan 1 och 35");
 
                 nums[i] = n;
             }
 
             if (nums.Distinct().Count() != 7)
-                throw new Exception("Talen måste vara unika (inga dubletter).");
+                throw new Exception("Talen måste vara unika,inga dubletter");
 
             return nums;
         }
