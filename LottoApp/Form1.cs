@@ -21,7 +21,7 @@ namespace LottoApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-        try
+            try
             {
                 int[] user = ReadUserRow();
                 bool[] picked = new bool[36];
@@ -85,7 +85,7 @@ namespace LottoApp
 
         private int DrawAndCountMatches(bool[] picked)
         {
-      
+
             for (int i = 0; i < 7; i++)
             {
                 int j = _rng.Next(i, 35);
@@ -102,6 +102,21 @@ namespace LottoApp
             }
 
             return matches;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
