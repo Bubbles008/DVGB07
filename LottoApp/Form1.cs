@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace LottoApp
@@ -7,16 +6,32 @@ namespace LottoApp
     public partial class Form1 : Form
     {
         private readonly Random _rng = new Random();
-        private readonly int[] _pool = Enumerable.Range(1, 35).ToArray();
-
+        private readonly int[] _pool = new int[35];
         public Form1()
         {
             InitializeComponent();
-        }
 
+            for(int i = 0; i<35; i++)
+           {
+                _pool[i] = i;
+           }
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
 
+            textDraws.Clear();
+
+            txt5.Clear();
+            txt6.Clear();
+            txt7.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,6 +130,11 @@ namespace LottoApp
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textDraws_TextChanged(object sender, EventArgs e)
         {
 
         }

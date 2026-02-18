@@ -110,6 +110,7 @@
             textDraws.Size = new Size(100, 23);
             textDraws.TabIndex = 7;
             textDraws.Text = "10000";
+            textDraws.TextChanged += textDraws_TextChanged;
             // 
             // txt7
             // 
