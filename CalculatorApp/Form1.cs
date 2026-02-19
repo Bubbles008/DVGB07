@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Windows.Forms; 
 
@@ -6,6 +7,8 @@ namespace CalculatorApp
     public partial class Form1 : Form
     {
         private bool newEntry = true;
+        private long currentValue = 0;
+        private char pendingOperator = '\0';
 
         public Form1()
         {
@@ -25,6 +28,14 @@ namespace CalculatorApp
             button7.Click += (sender, eventArgs) => Digit(7);
             button8.Click += (sender, eventArgs) => Digit(8);
             button9.Click += (sender, eventArgs) => Digit(9);
+
+            buttonC.Click += (sender, eventArgs) => ClearAll();
+
+            buttonPlus.Click += (sender, eventArgs) => HandleOperator('+');
+            buttonMinus.Click += (sender, eventArgs) => HandleOperator('-');
+            buttonMul.Click += (sender, eventArgs) => HandleOperator('*');
+            buttonDiv.Click += (sender, eventArgs) => HandleOperator('/');
+
 
 
         }
@@ -57,6 +68,66 @@ namespace CalculatorApp
             txtDisplay.Text = candidate;
         }
 
+        private void ClearAll()
+        {
+            txtDisplay.Text = "0";
+            newEntry = true; 
+        }
+
+        private long ReadDisplay()
+        {
+            long displayValue;
+            if (!long.TryParse(txtDisplay.Text, out displayValue))
+                throw new Exception("Ogiltigt tal i display");
+            return displayValue;
+        }
+
+        private void HandleOperator(char operatorSymbol)
+        {
+            try
+            {
+                long displayValue = ReadDisplay();
+                if (pendingOperator == '\0')
+                {
+                    currentValue = displayValue;
+                }
+                else if(!newEntry)
+                {
+                    currentValue = Apply(currentValue, pendingOperator);
+                    txtDisplay.Text = currentValue.ToString();
+
+                }
+                pendingOperator = operatorSymbol;
+                    newEntry = true; 
+
+            }
+            catch (DividedByZeroException)
+            {
+                MessageBox.Show("Division med 0 är inte tillåten");
+                ClearAll();
+            }
+            catch(OverflowException)
+            {
+                MessageBox.Show("Resultatet är för stort/litet");
+                ClearAll();
+            }
+        }
+
+        private long Apply(long a, long b, char operatorSymbol)
+        {
+            checked
+            {
+                if (operatorSymbol == '+') return a + b;
+                if (operatorSymbol == '+') return a - b;
+                if (operatorSymbol == '+') return a * b;
+                if (operatorSymbol == '/')
+                {
+                    if (b == '0') throw new DivideByZeroException();
+                    return a / b; 
+                }
+                throw new Exception("Okänd operator");
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
