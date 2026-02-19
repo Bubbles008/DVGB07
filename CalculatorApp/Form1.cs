@@ -10,6 +10,7 @@ namespace CalculatorApp
         private char pendingOperator = '\0';
         private long lastRightOperand = 0;
         private char lastOperator = '\0';
+        private bool justPressedEquals = false; 
 
 
         public Form1()
@@ -45,8 +46,18 @@ namespace CalculatorApp
 
         }
 
-        private void Digit(int d)
-        {
+        private void Digit(int d) {
+
+        if(justPressedEquals){
+            currentValue = 0;
+            pendingOperator = '\0';
+            lastOperator = '\0';
+            lastRightOperand = 0;
+            justPressedEquals = false;
+
+            txtDisplay.Text = "0";
+            newEntry = true; 
+        }
             if (newEntry) 
             {
                 txtDisplay.Text = d.ToString();
@@ -81,6 +92,7 @@ namespace CalculatorApp
             pendingOperator = '\0';
             lastRightOperand = 0;
             lastOperator = '\0';
+            justPressedEquals = false;
         }
 
         private long ReadDisplay()
@@ -108,12 +120,14 @@ namespace CalculatorApp
                     currentValue = result; 
                     pendingOperator = '\0';
                     newEntry = true;
+                    justPressedEquals = true;
                 }
                 else if(lastOperator != '\0')
                 {
                     long result = Apply(displayValue, lastRightOperand, lastOperator);
                     txtDisplay.Text = result.ToString();
                     newEntry = true; 
+                     justPressedEquals = true;
                 }
             }
             catch (DivideByZeroException)
@@ -136,6 +150,7 @@ namespace CalculatorApp
 
         private void HandleOperator(char operatorSymbol)
         {
+            justPressedEquals = false;
             try
             {
                 long displayValue = ReadDisplay();
