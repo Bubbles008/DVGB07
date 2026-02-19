@@ -1,4 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Windows.Forms; 
 
@@ -9,6 +8,9 @@ namespace CalculatorApp
         private bool newEntry = true;
         private long currentValue = 0;
         private char pendingOperator = '\0';
+        private long lastRightOperand = 0;
+        private char lastOperator = '\0';
+
 
         public Form1()
         {
@@ -30,6 +32,9 @@ namespace CalculatorApp
             button9.Click += (sender, eventArgs) => Digit(9);
 
             buttonC.Click += (sender, eventArgs) => ClearAll();
+            buttonEq.Click += (sender, eventArgs) => HandleEquals();
+
+
 
             buttonPlus.Click += (sender, eventArgs) => HandleOperator('+');
             buttonMinus.Click += (sender, eventArgs) => HandleOperator('-');
@@ -61,7 +66,7 @@ namespace CalculatorApp
             long temp; 
             if(!long.TryParse(candidate, out temp))
             {
-                MessageBox.Show("Talet ‰r fˆr stort");
+                MessageBox.Show("Talet √§r f√∂r stort");
                 return;
             }
 
@@ -72,6 +77,10 @@ namespace CalculatorApp
         {
             txtDisplay.Text = "0";
             newEntry = true; 
+            currentValue = 0;
+            pendingOperator = '\0';
+            lastRightOperand = 0;
+            lastOperator = '\0';
         }
 
         private long ReadDisplay()
@@ -80,6 +89,49 @@ namespace CalculatorApp
             if (!long.TryParse(txtDisplay.Text, out displayValue))
                 throw new Exception("Ogiltigt tal i display");
             return displayValue;
+        }
+
+        private void HandleEquals()
+        {
+            try
+            {
+                long displayValue = ReadDisplay();
+
+                if(pendingOperator != '\0')
+                {
+                    long result = Apply(currentValue, displayValue, pendingOperator);
+                    txtDisplay.Text = result.ToString();
+
+                    lastOperator = pendingOperator;
+                    lastRightOperand = displayValue;
+
+                    currentValue = result; 
+                    pendingOperator = '\0';
+                    newEntry = true;
+                }
+                else if(lastOperator != '\0')
+                {
+                    long result = Apply(displayValue, lastRightOperand, lastOperator);
+                    txtDisplay.Text = result.ToString();
+                    newEntry = true; 
+                }
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Division med 0 √§r inte till√•ten");
+                ClearAll();
+            }
+            catch(OverflowException)
+            {
+                MessageBox.Show("Resultatet √§r f√∂r stort/litet");
+                ClearAll();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                ClearAll();
+            }
         }
 
         private void HandleOperator(char operatorSymbol)
@@ -93,22 +145,31 @@ namespace CalculatorApp
                 }
                 else if(!newEntry)
                 {
-                    currentValue = Apply(currentValue, pendingOperator);
+                    currentValue = Apply(currentValue, displayValue, pendingOperator);
                     txtDisplay.Text = currentValue.ToString();
 
                 }
                 pendingOperator = operatorSymbol;
                     newEntry = true; 
 
+                    lastOperator = '\0';
+                    lastRightOperand = 0;
+
             }
-            catch (DividedByZeroException)
+            catch (DivideByZeroException)
             {
-                MessageBox.Show("Division med 0 ‰r inte tillÂten");
+                MessageBox.Show("Division med 0 √§r inte till√•ten");
                 ClearAll();
             }
             catch(OverflowException)
             {
-                MessageBox.Show("Resultatet ‰r fˆr stort/litet");
+                MessageBox.Show("Resultatet √§r f√∂r stort/litet");
+                ClearAll();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
                 ClearAll();
             }
         }
@@ -118,40 +179,15 @@ namespace CalculatorApp
             checked
             {
                 if (operatorSymbol == '+') return a + b;
-                if (operatorSymbol == '+') return a - b;
-                if (operatorSymbol == '+') return a * b;
+                if (operatorSymbol == '-') return a - b;
+                if (operatorSymbol == '*') return a * b;
                 if (operatorSymbol == '/')
                 {
                     if (b == '0') throw new DivideByZeroException();
                     return a / b; 
                 }
-                throw new Exception("Ok‰nd operator");
+                throw new Exception("Ok√§nd operator");
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonEq_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonMul_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
