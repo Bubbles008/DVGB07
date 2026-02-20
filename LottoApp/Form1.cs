@@ -1,19 +1,20 @@
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace LottoApp
 {
     public partial class Form1 : Form
     {
-        private readonly Random _rng = new Random();
-        private readonly int[] _pool = new int[35];
+        private readonly Random randomGenerator = new Random();
+        private readonly int[] numberPool = new int[35];
         public Form1()
         {
             InitializeComponent();
 
             for(int i = 0; i<35; i++)
            {
-                _pool[i] = i;
+                numberPool[i] = i + 1;
            }
 
         }
@@ -49,20 +50,20 @@ namespace LottoApp
                     return;
                 }
 
-                long c5 = 0, c6 = 0, c7 = 0;
+                long count5Right = 0, count6Right = 0, count7Right = 0;
 
                 for (int i = 0; i < draws; i++)
                 {
                     int matches = DrawAndCountMatches(picked);
 
-                    if (matches == 5) c5++;
-                    else if (matches == 6) c6++;
-                    else if (matches == 7) c7++;
+                    if (matches == 5) count5Right++;
+                    else if (matches == 6) count6Right++;
+                    else if (matches == 7) count7Right++;
                 }
 
-                txt5.Text = c5.ToString();
-                txt6.Text = c6.ToString();
-                txt7.Text = c7.ToString();
+                txt5.Text = count5Right.ToString();
+                txt6.Text = count6Right.ToString();
+                txt7.Text = count7Right.ToString();
             }
             catch (Exception ex)
             {
@@ -81,9 +82,9 @@ namespace LottoApp
 
             for (int i = 0; i < 7; i++)
             {
-                string s = boxes[i].Text.Trim();
+                string inputText = boxes[i].Text.Trim();
 
-                if (!int.TryParse(s, out int n))
+                if (!int.TryParse(inputText, out int n))
                     throw new Exception("Alla 7 tal måste vara heltal");
 
                 if (n < 1 || n > 35)
@@ -103,16 +104,16 @@ namespace LottoApp
 
             for (int i = 0; i < 7; i++)
             {
-                int j = _rng.Next(i, 35);
-                int tmp = _pool[i];
-                _pool[i] = _pool[j];
-                _pool[j] = tmp;
+                int j = randomGenerator.Next(i, 35);
+                int temp = numberPool[i];
+                numberPool[i] = numberPool[j];
+                numberPool[j] = temp;
             }
 
             int matches = 0;
             for (int i = 0; i < 7; i++)
             {
-                int drawn = _pool[i];
+                int drawn = numberPool[i];
                 if (picked[drawn]) matches++;
             }
 

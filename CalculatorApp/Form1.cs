@@ -7,8 +7,8 @@ namespace CalculatorApp
     {
         private bool newEntry = true;
         private long currentValue = 0;
-        private char pendingOperator = '\0';
-        private long lastRightOperand = 0;
+        private char selectedOperator = '\0';
+        private long repeatNumber = 0;
         private char lastOperator = '\0';
         private bool justPressedEquals = false; 
 
@@ -49,14 +49,11 @@ namespace CalculatorApp
         private void Digit(int d) {
 
         if(justPressedEquals){
-            currentValue = 0;
-            pendingOperator = '\0';
-            lastOperator = '\0';
-            lastRightOperand = 0;
+                txtDisplay.Text = "0";
+                newEntry = true;
             justPressedEquals = false;
 
-            txtDisplay.Text = "0";
-            newEntry = true; 
+      
         }
             if (newEntry) 
             {
@@ -89,8 +86,8 @@ namespace CalculatorApp
             txtDisplay.Text = "0";
             newEntry = true; 
             currentValue = 0;
-            pendingOperator = '\0';
-            lastRightOperand = 0;
+            selectedOperator = '\0';
+            repeatNumber = 0;
             lastOperator = '\0';
             justPressedEquals = false;
         }
@@ -107,24 +104,24 @@ namespace CalculatorApp
         {
             try
             {
-                long displayValue = ReadDisplay();
+                long numberOnDisplay = ReadDisplay();
 
-                if(pendingOperator != '\0')
+                if(selectedOperator != '\0')
                 {
-                    long result = Apply(currentValue, displayValue, pendingOperator);
+                    long result = Calculate(currentValue, numberOnDisplay, selectedOperator);
                     txtDisplay.Text = result.ToString();
 
-                    lastOperator = pendingOperator;
-                    lastRightOperand = displayValue;
+                    lastOperator = selectedOperator;
+                    repeatNumber = numberOnDisplay;
 
                     currentValue = result; 
-                    pendingOperator = '\0';
+                    selectedOperator = '\0';
                     newEntry = true;
                     justPressedEquals = true;
                 }
                 else if(lastOperator != '\0')
                 {
-                    long result = Apply(displayValue, lastRightOperand, lastOperator);
+                    long result = Calculate(numberOnDisplay, repeatNumber, lastOperator);
                     txtDisplay.Text = result.ToString();
                     newEntry = true; 
                      justPressedEquals = true;
@@ -154,21 +151,21 @@ namespace CalculatorApp
             try
             {
                 long displayValue = ReadDisplay();
-                if (pendingOperator == '\0')
+                if (selectedOperator == '\0')
                 {
                     currentValue = displayValue;
                 }
                 else if(!newEntry)
                 {
-                    currentValue = Apply(currentValue, displayValue, pendingOperator);
+                    currentValue = Calculate(currentValue, displayValue, selectedOperator);
                     txtDisplay.Text = currentValue.ToString();
 
                 }
-                pendingOperator = operatorSymbol;
+                selectedOperator = operatorSymbol;
                     newEntry = true; 
 
                     lastOperator = '\0';
-                    lastRightOperand = 0;
+                    repeatNumber = 0;
 
             }
             catch (DivideByZeroException)
@@ -189,7 +186,7 @@ namespace CalculatorApp
             }
         }
 
-        private long Apply(long a, long b, char operatorSymbol)
+        private long Calculate(long a, long b, char operatorSymbol)
         {
             checked
             {
