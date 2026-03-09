@@ -32,7 +32,7 @@
             arkivToolStripMenuItem = new ToolStripMenuItem();
             nyToolStripMenuItem = new ToolStripMenuItem();
             oppnaToolStripMenuItem = new ToolStripMenuItem();
-            sparaToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
             sparaSomToolStripMenuItem = new ToolStripMenuItem();
             avslutaToolStripMenuItem = new ToolStripMenuItem();
             editor = new RichTextBox();
@@ -50,40 +50,43 @@
             // 
             // arkivToolStripMenuItem
             // 
-            arkivToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nyToolStripMenuItem, oppnaToolStripMenuItem, sparaToolStripMenuItem, sparaSomToolStripMenuItem, avslutaToolStripMenuItem });
+            arkivToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nyToolStripMenuItem, oppnaToolStripMenuItem, saveToolStripMenuItem, sparaSomToolStripMenuItem, avslutaToolStripMenuItem });
             arkivToolStripMenuItem.Name = "arkivToolStripMenuItem";
-            arkivToolStripMenuItem.Size = new Size(46, 20);
-            arkivToolStripMenuItem.Text = "Arkiv";
+            arkivToolStripMenuItem.Size = new Size(37, 20);
+            arkivToolStripMenuItem.Text = "File";
             // 
             // nyToolStripMenuItem
             // 
             nyToolStripMenuItem.Name = "nyToolStripMenuItem";
             nyToolStripMenuItem.Size = new Size(180, 22);
-            nyToolStripMenuItem.Text = "Ny";
+            nyToolStripMenuItem.Text = "New";
+            nyToolStripMenuItem.Click += nyToolStripMenuItem_Click;
             // 
             // oppnaToolStripMenuItem
             // 
             oppnaToolStripMenuItem.Name = "oppnaToolStripMenuItem";
             oppnaToolStripMenuItem.Size = new Size(180, 22);
-            oppnaToolStripMenuItem.Text = "Öppna";
+            oppnaToolStripMenuItem.Text = "Open";
             // 
-            // sparaToolStripMenuItem
+            // saveToolStripMenuItem
             // 
-            sparaToolStripMenuItem.Name = "sparaToolStripMenuItem";
-            sparaToolStripMenuItem.Size = new Size(180, 22);
-            sparaToolStripMenuItem.Text = "Spara";
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += sparaToolStripMenuItem_Click;
             // 
             // sparaSomToolStripMenuItem
             // 
             sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
             sparaSomToolStripMenuItem.Size = new Size(180, 22);
-            sparaSomToolStripMenuItem.Text = "Spara som";
+            sparaSomToolStripMenuItem.Text = "Save As";
+            sparaSomToolStripMenuItem.Click += sparaSomToolStripMenuItem_Click;
             // 
             // avslutaToolStripMenuItem
             // 
             avslutaToolStripMenuItem.Name = "avslutaToolStripMenuItem";
             avslutaToolStripMenuItem.Size = new Size(180, 22);
-            avslutaToolStripMenuItem.Text = "Avsluta";
+            avslutaToolStripMenuItem.Text = "Exit";
             avslutaToolStripMenuItem.Click += avslutaToolStripMenuItem_Click;
             // 
             // editor
@@ -122,7 +125,7 @@
         private RichTextBox editor;
         private ToolStripMenuItem nyToolStripMenuItem;
         private ToolStripMenuItem oppnaToolStripMenuItem;
-        private ToolStripMenuItem sparaToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem sparaSomToolStripMenuItem;
         private ToolStripMenuItem avslutaToolStripMenuItem;
     }
