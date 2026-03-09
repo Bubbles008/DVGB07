@@ -28,12 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            menuStrip1 = new MenuStrip();
+            arkivToolStripMenuItem = new ToolStripMenuItem();
+            nyToolStripMenuItem = new ToolStripMenuItem();
+            oppnaToolStripMenuItem = new ToolStripMenuItem();
+            sparaToolStripMenuItem = new ToolStripMenuItem();
+            sparaSomToolStripMenuItem = new ToolStripMenuItem();
+            avslutaToolStripMenuItem = new ToolStripMenuItem();
+            editor = new RichTextBox();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { arkivToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // arkivToolStripMenuItem
+            // 
+            arkivToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { nyToolStripMenuItem, oppnaToolStripMenuItem, sparaToolStripMenuItem, sparaSomToolStripMenuItem, avslutaToolStripMenuItem });
+            arkivToolStripMenuItem.Name = "arkivToolStripMenuItem";
+            arkivToolStripMenuItem.Size = new Size(46, 20);
+            arkivToolStripMenuItem.Text = "Arkiv";
+            // 
+            // nyToolStripMenuItem
+            // 
+            nyToolStripMenuItem.Name = "nyToolStripMenuItem";
+            nyToolStripMenuItem.Size = new Size(180, 22);
+            nyToolStripMenuItem.Text = "Ny";
+            // 
+            // oppnaToolStripMenuItem
+            // 
+            oppnaToolStripMenuItem.Name = "oppnaToolStripMenuItem";
+            oppnaToolStripMenuItem.Size = new Size(180, 22);
+            oppnaToolStripMenuItem.Text = "Öppna";
+            // 
+            // sparaToolStripMenuItem
+            // 
+            sparaToolStripMenuItem.Name = "sparaToolStripMenuItem";
+            sparaToolStripMenuItem.Size = new Size(180, 22);
+            sparaToolStripMenuItem.Text = "Spara";
+            // 
+            // sparaSomToolStripMenuItem
+            // 
+            sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
+            sparaSomToolStripMenuItem.Size = new Size(180, 22);
+            sparaSomToolStripMenuItem.Text = "Spara som";
+            // 
+            // avslutaToolStripMenuItem
+            // 
+            avslutaToolStripMenuItem.Name = "avslutaToolStripMenuItem";
+            avslutaToolStripMenuItem.Size = new Size(180, 22);
+            avslutaToolStripMenuItem.Text = "Avsluta";
+            avslutaToolStripMenuItem.Click += avslutaToolStripMenuItem_Click;
+            // 
+            // editor
+            // 
+            editor.Dock = DockStyle.Fill;
+            editor.Location = new Point(0, 24);
+            editor.Name = "editor";
+            editor.Size = new Size(800, 426);
+            editor.TabIndex = 1;
+            editor.Text = "";
+            editor.TextChanged += Form1_TextChanged;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(editor);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "namnlös.txt";
+            Load += Form1_Load;
+            TextChanged += Form1_TextChanged;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem arkivToolStripMenuItem;
+        private RichTextBox editor;
+        private ToolStripMenuItem nyToolStripMenuItem;
+        private ToolStripMenuItem oppnaToolStripMenuItem;
+        private ToolStripMenuItem sparaToolStripMenuItem;
+        private ToolStripMenuItem sparaSomToolStripMenuItem;
+        private ToolStripMenuItem avslutaToolStripMenuItem;
     }
 }
