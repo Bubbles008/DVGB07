@@ -77,11 +77,27 @@ namespace Lab3
                 File.WriteAllText(currentFilePath, editor.Text);
                 isModified = false;
                 UpdateTitle();
-                return true; 
+                return true;
             }
 
-            return false; 
+            return false;
         }
+
+        private void OpenFile()
+        {
+            if (!AskToSaveChanges())
+                return;
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                currentFilePath = openFileDialog.FileName;
+                editor.Text = File.ReadAllText(currentFilePath);
+                isModified = false;
+                UpdateTitle();
+            }
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -120,6 +136,18 @@ namespace Lab3
             SaveFileAs();
         }
 
+        private void oppnaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if(!AskToSaveChanges())
+            {
+                e.Cancel = true;
+            }
+            base.OnFormClosing(e);
+        }
     }
 }

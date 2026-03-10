@@ -67,6 +67,7 @@
             oppnaToolStripMenuItem.Name = "oppnaToolStripMenuItem";
             oppnaToolStripMenuItem.Size = new Size(180, 22);
             oppnaToolStripMenuItem.Text = "Open";
+            oppnaToolStripMenuItem.Click += oppnaToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
