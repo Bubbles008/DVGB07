@@ -67,9 +67,7 @@ namespace Lab3
         {
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Textfiler|*.txt";
-            saveFileDialog.DefaultExt = "txt";
-            saveFileDialog.AddExtension = true;
+
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -106,8 +104,11 @@ namespace Lab3
 
         private void Form1_TextChanged(object sender, EventArgs e)
         {
+
+
             isModified = true;
             UpdateTitle();
+
         }
 
         private void avslutaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace Lab3
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if(!AskToSaveChanges())
+            if (!AskToSaveChanges())
             {
                 e.Cancel = true;
             }

@@ -58,35 +58,35 @@
             // nyToolStripMenuItem
             // 
             nyToolStripMenuItem.Name = "nyToolStripMenuItem";
-            nyToolStripMenuItem.Size = new Size(180, 22);
+            nyToolStripMenuItem.Size = new Size(114, 22);
             nyToolStripMenuItem.Text = "New";
             nyToolStripMenuItem.Click += nyToolStripMenuItem_Click;
             // 
             // oppnaToolStripMenuItem
             // 
             oppnaToolStripMenuItem.Name = "oppnaToolStripMenuItem";
-            oppnaToolStripMenuItem.Size = new Size(180, 22);
+            oppnaToolStripMenuItem.Size = new Size(114, 22);
             oppnaToolStripMenuItem.Text = "Open";
             oppnaToolStripMenuItem.Click += oppnaToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(114, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += sparaToolStripMenuItem_Click;
             // 
             // sparaSomToolStripMenuItem
             // 
             sparaSomToolStripMenuItem.Name = "sparaSomToolStripMenuItem";
-            sparaSomToolStripMenuItem.Size = new Size(180, 22);
+            sparaSomToolStripMenuItem.Size = new Size(114, 22);
             sparaSomToolStripMenuItem.Text = "Save As";
             sparaSomToolStripMenuItem.Click += sparaSomToolStripMenuItem_Click;
             // 
             // avslutaToolStripMenuItem
             // 
             avslutaToolStripMenuItem.Name = "avslutaToolStripMenuItem";
-            avslutaToolStripMenuItem.Size = new Size(180, 22);
+            avslutaToolStripMenuItem.Size = new Size(114, 22);
             avslutaToolStripMenuItem.Text = "Exit";
             avslutaToolStripMenuItem.Click += avslutaToolStripMenuItem_Click;
             // 
@@ -112,7 +112,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "namnlös.txt";
             Load += Form1_Load;
-            TextChanged += Form1_TextChanged;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
