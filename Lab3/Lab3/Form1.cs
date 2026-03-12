@@ -13,6 +13,7 @@ namespace Lab3
         {
             InitializeComponent();
             UpdateTitle();
+            UpdateStatusBar();
         }
 
         private void UpdateTitle()
@@ -24,6 +25,26 @@ namespace Lab3
             Text = isModified ? "*" + fileName : fileName;
 
         }
+
+        private void UpdateStatusBar()
+        {
+            string text = editor.Text;
+
+            int charCount = text.Length;
+            int charNoSpacesCount = text.Replace(" ", "").Replace("\r", "").Replace("\n", "").Length;
+
+            int wordCount = text
+                .Split(new char[] { ' ', '\r', '\n', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                .Length;
+
+            int lineCount = editor.Lines.Length;
+
+            charCountLabel.Text = "Chars: " + charCount;
+            charNoSpacesLabel.Text = "Chars (no spaces):" + charNoSpacesCount;
+            wordCountLabel.Text = "Words: " + wordCount;
+            lineCountLabel.Text = "Lines: " + lineCount; 
+                }
+
 
         private bool AskToSaveChanges()
         {
@@ -93,6 +114,7 @@ namespace Lab3
                 editor.Text = File.ReadAllText(currentFilePath);
                 isModified = false;
                 UpdateTitle();
+                UpdateStatusBar();
             }
         }
 
@@ -108,6 +130,7 @@ namespace Lab3
 
             isModified = true;
             UpdateTitle();
+            UpdateStatusBar();
 
         }
 
@@ -124,6 +147,7 @@ namespace Lab3
             currentFilePath = "";
             isModified = false;
             UpdateTitle();
+            UpdateStatusBar();
 
 
         }
@@ -149,6 +173,11 @@ namespace Lab3
                 e.Cancel = true;
             }
             base.OnFormClosing(e);
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
