@@ -13,5 +13,27 @@ namespace Store.Models
         public float Price { get; set; }
         public int QuantityInStock { get; set; }
 
-        public Product
+        public Product(int id, string name, float price, int quantityInStock)
+        {
+            ID=id; 
+            Name=name;
+            Price=price;
+            QuantityInStock=quantityInStock;
+        }
+        public void IncreaseStock(int amount)
+        {
+            QuantityInStock += amount; 
+        }
+        public void DecreaseStock(int amount)
+        {
+            QuantityInStock -= amount;
+        }
+
+        public bool IsAvailable(int amount)
+        {
+            return QuantityInStock >= amount; 
+        }
+
+    }
+
 }

@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Store.Models
 {
-    internal class Game
+    public class Game
     {
+        public string Platform {get; set;}
+
+        public Game(int id, string name, float price, int quantityInStock,
+        string platform)
+        : base(id, name, price, quantityInStock)
+        {
+            Platform = platform;
+        }
     }
 }
 
