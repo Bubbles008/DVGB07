@@ -17,10 +17,10 @@ namespace Store.Models
 
         public void AddItem(Product product)
         {
-            Items.Add(prodct);
+            Items.Add(product);
         }
 
-        public void RemoveItem(Prodct product)
+        public void RemoveItem(Product product)
         {
             Items.Remove(product);
         }
