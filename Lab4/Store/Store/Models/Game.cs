@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Models
 {
-    public class Game
+    public class Game : Product
     {
         public string Platform {get; set;}
 
