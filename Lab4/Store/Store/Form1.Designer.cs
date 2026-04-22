@@ -30,6 +30,7 @@
         {
             listBox1 = new ListBox();
             button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -38,7 +39,7 @@
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(0, 0);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
+            listBox1.Size = new Size(251, 94);
             listBox1.TabIndex = 0;
             // 
             // button1
@@ -51,11 +52,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(12, 163);
+            button2.Name = "button2";
+            button2.Size = new Size(140, 23);
+            button2.TabIndex = 2;
+            button2.Text = "Sell Selected Product";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listBox1);
             Name = "Form1";
@@ -67,5 +79,6 @@
 
         private ListBox listBox1;
         private Button button1;
+        private Button button2;
     }
 }
