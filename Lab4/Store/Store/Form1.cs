@@ -16,6 +16,21 @@ namespace Store
 
         }
 
+        private void UpdateProductLists()
+        {
+            listBox1.Items.Clear();
+            listBoxCashier.Items.Clear();
+
+            foreach (Product product in storeManager.Products)
+            {
+                string productInfo = product.Name + " - Price: " + product.Price + " - Stock: " + product.QuantityInStock;
+
+                listBox1.Items.Add(productInfo);
+                listBoxCashier.Items.Add(productInfo);
+            }
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             storeManager.Products.Clear();
@@ -29,14 +44,11 @@ namespace Store
             storeManager.AddProduct(film);
             storeManager.AddProduct(game);
 
-            foreach (Product product in storeManager.Products)
-            {
-                listBox1.Items.Add(product.Name + " - $" + product.Price + "- Stock:" + product.QuantityInStock);
-            }
+            UpdateProductLists();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonSellProduct_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == -1)
             {
@@ -44,7 +56,7 @@ namespace Store
                 return;
             }
 
-            Product selectedProduct = storeManager.Products[listBox1.SelectedIndex];
+            Product selectedProduct = storeManager.Products[listBoxCashier.SelectedIndex];
 
             bool sold = storeManager.SellProduct(selectedProduct.Id, 1);
 
@@ -56,12 +68,7 @@ namespace Store
             {
                 MessageBox.Show("Not enough items in stock");
             }
-            listBox1.Items.Clear();
-
-            foreach (Product product in storeManager.Products)
-            {
-                listBox1.Items.Add(product.Name + "- Price: " + product.Price + " -Stock: " + product.QuantityInStock);
-            }
+            UpdateProductLists();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -86,12 +93,7 @@ namespace Store
                 MessageBox.Show("Could not remove product, product can only be removed when stock is 0");
             }
 
-            listBox1.Items.Clear();
-
-            foreach (Product product in storeManager.Products)
-            {
-                listBox1.Items.Add(product.Name + "- Price: " + product.Price + " - Stock: " + product.QuantityInStock);
-            }
+            UpdateProductLists();
 
         }
 
@@ -107,12 +109,10 @@ namespace Store
             selectedProduct.IncreaseStock(1);
 
             MessageBox.Show("Stock increased by 1");
-            listBox1.Items.Clear();
 
-            foreach (Product product in storeManager.Products)
-            {
-                listBox1.Items.Add(product.Name + " - Price:" + product.Price + "- Stock:" + product.QuantityInStock);
-            }
+            UpdateProductLists();
+
+           
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -130,4 +130,6 @@ namespace Store
 
         }
     }
+
+   
 }
