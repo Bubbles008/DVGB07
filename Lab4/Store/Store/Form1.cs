@@ -1,19 +1,15 @@
 using Store.Logic;
 using Store.Models;
-using System.Diagnostics.Eventing.Reader;
 
 namespace Store
 {
     public partial class Form1 : Form
-
-
     {
         private StoreManager storeManager = new StoreManager();
+
         public Form1()
         {
             InitializeComponent();
-
-
         }
 
         private void UpdateProductLists()
@@ -28,13 +24,11 @@ namespace Store
                 listBox1.Items.Add(productInfo);
                 listBoxCashier.Items.Add(productInfo);
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             storeManager.Products.Clear();
-            listBox1.Items.Clear();
 
             Book book = new Book(1, "Harry Potter", 199.0f, 10, "J.K. Rowling", "Fantasy", "Hardcover", "English");
             Film film = new Film(2, "Interception", 149.0f, 5, "Blu-ray", 148);
@@ -45,12 +39,11 @@ namespace Store
             storeManager.AddProduct(game);
 
             UpdateProductLists();
-
         }
 
         private void buttonSellProduct_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == -1)
+            if (listBoxCashier.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a product first");
                 return;
@@ -68,6 +61,7 @@ namespace Store
             {
                 MessageBox.Show("Not enough items in stock");
             }
+
             UpdateProductLists();
         }
 
@@ -86,7 +80,6 @@ namespace Store
             if (removed)
             {
                 MessageBox.Show("Product removed successfully");
-
             }
             else
             {
@@ -94,7 +87,6 @@ namespace Store
             }
 
             UpdateProductLists();
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -111,25 +103,10 @@ namespace Store
             MessageBox.Show("Stock increased by 1");
 
             UpdateProductLists();
-
-           
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
-
-   
 }
