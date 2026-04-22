@@ -104,7 +104,7 @@ namespace Store
 
             UpdateProductLists();
 
-           
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -116,5 +116,57 @@ namespace Store
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
+        private void buttonAddBook_Click(object sender, EventArgs e)
+        {
+            int id;
+            int stock;
+            float price; 
+
+            if(!int.TryParse(textId.Text, out id))
+            {
+                MessageBox.Show("ID Invalid");
+                return; 
+            }
+            if(!float.TryParse(textPrice.Text, out price))
+            {
+                MessageBox.Show("Invalid price");
+                return;
+            }
+            if(!int.TryParse(textStock.Text, out stock))
+            {
+                MessageBox.Show("Invalid stock");
+                return; 
+            }
+            if(string.IsNullOrWiteSpace(textName.Text) ||
+               string.IsNullOrWiteSpace(textAuthor.Text) ||
+               string.IsNullOrWiteSpace(textGenre.Text) ||
+               string.IsNullOrWiteSpace(textFormat.Text) ||
+               string.IsNullOrWiteSpace(textLanguage.Text))
+
+            {
+                MessageBox.Show("Please fill in all of the fields");
+                return; 
+            }
+            foreach ( Product product in storeManager.Products)
+                if(product.Id == id)
+                {
+                    MessageBox.Show("A product with this ID already exists");
+                    return; 
+                }
+
+        }
+        Book.newBook = new Book(
+            id,
+            textName.Text,
+            price,
+            stock,
+            textAuthor.Text,
+            textGenre.Text,
+            textFormat.Text,
+            textLangugage.Text
+            );
+
+
     }
 }
