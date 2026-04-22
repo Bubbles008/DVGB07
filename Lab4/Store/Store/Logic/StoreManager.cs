@@ -25,7 +25,7 @@ namespace Store.Logic
         {
             Product productToRemove = Products.Find(p => p.Id == id);
 
-            if (productToRemove != null)
+            if (productToRemove != null && productToRemove.QuantityInStock == 0)
             {
                 Products.Remove(productToRemove);
                 return true;

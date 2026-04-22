@@ -64,5 +64,60 @@ namespace Store
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a product first");
+                return;
+            }
+
+            Product selectedProduct = storeManager.Products[listBox1.SelectedIndex];
+
+            bool removed = storeManager.RemoveProduct(selectedProduct.Id);
+
+            if (removed)
+            {
+                MessageBox.Show("Product removed successfully");
+
+            }
+            else
+            {
+                MessageBox.Show("Could not remove product, product can only be removed when stock is 0");
+            }
+
+            listBox1.Items.Clear();
+
+            foreach (Product product in storeManager.Products)
+            {
+                listBox1.Items.Add(product.Name + "- Price: " + product.Price + " - Stock: " + product.QuantityInStock);
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a product first");
+                return;
+            }
+
+            Product selectedProduct = storeManager.Products[listBox1.SelectedIndex];
+            selectedProduct.IncreaseStock(1);
+
+            MessageBox.Show("Stock increased by 1");
+            listBox1.Items.Clear();
+
+            foreach (Product product in storeManager.Products)
+            {
+                listBox1.Items.Add(product.Name + " - Price:" + product.Price + "- Stock:" + product.QuantityInStock);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
