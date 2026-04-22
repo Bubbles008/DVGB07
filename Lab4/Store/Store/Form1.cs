@@ -138,17 +138,18 @@ namespace Store
                 MessageBox.Show("Invalid stock");
                 return; 
             }
-            if(string.IsNullOrWiteSpace(textName.Text) ||
-               string.IsNullOrWiteSpace(textAuthor.Text) ||
-               string.IsNullOrWiteSpace(textGenre.Text) ||
-               string.IsNullOrWiteSpace(textFormat.Text) ||
-               string.IsNullOrWiteSpace(textLanguage.Text))
+            if(string.IsNullOrWhiteSpace(textName.Text) ||
+               string.IsNullOrWhiteSpace(textAuthor.Text) ||
+               string.IsNullOrWhiteSpace(textGenre.Text) ||
+               string.IsNullOrWhiteSpace(textFormat.Text) ||
+               string.IsNullOrWhiteSpace(textLanguage.Text))
 
             {
                 MessageBox.Show("Please fill in all of the fields");
                 return; 
             }
             foreach ( Product product in storeManager.Products)
+            {
                 if(product.Id == id)
                 {
                     MessageBox.Show("A product with this ID already exists");
@@ -156,7 +157,7 @@ namespace Store
                 }
 
         }
-        Book.newBook = new Book(
+        Book newBook = new Book(
             id,
             textName.Text,
             price,
@@ -164,9 +165,23 @@ namespace Store
             textAuthor.Text,
             textGenre.Text,
             textFormat.Text,
-            textLangugage.Text
+            textLanguage.Text
             );
 
+            storeManager.AddProduct(newBook);
+            UpdateProductLists();
 
+            textId.Clear();
+            textName.Clear();
+            textPrice.Clear();
+            textStock.Clear();
+            textAuthor.Clear();
+            textGenre.Clear();
+            textFormat.Clear();
+            textLanguage.Clear();
+
+            MessageBox.Show("Book added successfully");
+
+        }
     }
 }
