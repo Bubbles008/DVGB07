@@ -39,7 +39,7 @@ namespace Store
                                   " | Price: " + film.Price +
                                   " | Stock: " + film.QuantityInStock +
                                   " | Format: " + film.Format +
-                                  " | Length: " + film.Length;
+                                  " | Length: " + film.Duration;
                 }
                 else if (product is Game game)
                 {
@@ -278,6 +278,21 @@ namespace Store
             textFilmLength.Clear();
 
             MessageBox.Show("Film added successfully");
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

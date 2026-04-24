@@ -71,6 +71,18 @@
             textName = new TextBox();
             textId = new TextBox();
             Cashier = new TabPage();
+            textGameId = new TextBox();
+            textGameName = new TextBox();
+            textGamePrice = new TextBox();
+            textGameStock = new TextBox();
+            textGamePlatform = new TextBox();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            button2 = new Button();
             tabControl1.SuspendLayout();
             Stock.SuspendLayout();
             Cashier.SuspendLayout();
@@ -147,6 +159,18 @@
             // 
             // Stock
             // 
+            Stock.Controls.Add(button2);
+            Stock.Controls.Add(label23);
+            Stock.Controls.Add(label22);
+            Stock.Controls.Add(label21);
+            Stock.Controls.Add(label20);
+            Stock.Controls.Add(label19);
+            Stock.Controls.Add(label18);
+            Stock.Controls.Add(textGamePlatform);
+            Stock.Controls.Add(textGameStock);
+            Stock.Controls.Add(textGamePrice);
+            Stock.Controls.Add(textGameName);
+            Stock.Controls.Add(textGameId);
             Stock.Controls.Add(buttonAddFilm);
             Stock.Controls.Add(label17);
             Stock.Controls.Add(textFilmLength);
@@ -211,7 +235,6 @@
             label17.Size = new Size(30, 15);
             label17.TabIndex = 38;
             label17.Text = "Film";
-            
             // 
             // textFilmLength
             // 
@@ -317,7 +340,6 @@
             label10.Size = new Size(34, 15);
             label10.TabIndex = 25;
             label10.Text = "Book";
-            
             // 
             // label9
             // 
@@ -327,7 +349,6 @@
             label9.Size = new Size(59, 15);
             label9.TabIndex = 24;
             label9.Text = "Language";
-           
             // 
             // label8
             // 
@@ -390,7 +411,6 @@
             label2.Name = "label2";
             label2.Size = new Size(0, 15);
             label2.TabIndex = 17;
-            
             // 
             // label1
             // 
@@ -487,6 +507,107 @@
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
             // 
+            // textGameId
+            // 
+            textGameId.Location = new Point(543, 233);
+            textGameId.Name = "textGameId";
+            textGameId.Size = new Size(100, 23);
+            textGameId.TabIndex = 40;
+            // 
+            // textGameName
+            // 
+            textGameName.Location = new Point(665, 233);
+            textGameName.Name = "textGameName";
+            textGameName.Size = new Size(100, 23);
+            textGameName.TabIndex = 41;
+            // 
+            // textGamePrice
+            // 
+            textGamePrice.Location = new Point(543, 271);
+            textGamePrice.Name = "textGamePrice";
+            textGamePrice.Size = new Size(100, 23);
+            textGamePrice.TabIndex = 42;
+            // 
+            // textGameStock
+            // 
+            textGameStock.Location = new Point(665, 271);
+            textGameStock.Name = "textGameStock";
+            textGameStock.Size = new Size(100, 23);
+            textGameStock.TabIndex = 43;
+            // 
+            // textGamePlatform
+            // 
+            textGamePlatform.Location = new Point(543, 321);
+            textGamePlatform.Name = "textGamePlatform";
+            textGamePlatform.Size = new Size(100, 23);
+            textGamePlatform.TabIndex = 44;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(563, 200);
+            label18.Name = "label18";
+            label18.Size = new Size(38, 15);
+            label18.TabIndex = 45;
+            label18.Text = "Game";
+            label18.Click += label18_Click;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(543, 215);
+            label19.Name = "label19";
+            label19.Size = new Size(18, 15);
+            label19.TabIndex = 46;
+            label19.Text = "ID";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(665, 215);
+            label20.Name = "label20";
+            label20.Size = new Size(39, 15);
+            label20.TabIndex = 47;
+            label20.Text = "Name";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(543, 258);
+            label21.Name = "label21";
+            label21.Size = new Size(33, 15);
+            label21.TabIndex = 48;
+            label21.Text = "Price";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(665, 258);
+            label22.Name = "label22";
+            label22.Size = new Size(36, 15);
+            label22.TabIndex = 49;
+            label22.Text = "Stock";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(543, 303);
+            label23.Name = "label23";
+            label23.Size = new Size(57, 15);
+            label23.TabIndex = 50;
+            label23.Text = "Plattform";
+            label23.Click += label23_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(629, 399);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 51;
+            button2.Text = "Add Game";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -547,5 +668,17 @@
         private TextBox textFilmFormat;
         private TextBox textFilmStock;
         private Button buttonAddFilm;
+        private Label label18;
+        private TextBox textGamePlatform;
+        private TextBox textGameStock;
+        private TextBox textGamePrice;
+        private TextBox textGameName;
+        private TextBox textGameId;
+        private Label label23;
+        private Label label22;
+        private Label label21;
+        private Label label20;
+        private Label label19;
+        private Button button2;
     }
 }
