@@ -13,54 +13,54 @@ namespace Store
         }
 
         private void UpdateProductLists()
-{
-    listBox1.Items.Clear();
-    listBoxCashier.Items.Clear();
+        {
+            listBox1.Items.Clear();
+            listBoxCashier.Items.Clear();
 
-    foreach (Product product in storeManager.Products)
-    {
-        string productInfo = "";
+            foreach (Product product in storeManager.Products)
+            {
+                string productInfo = "";
 
-        if (product is Book book)
-        {
-            productInfo = "ID: " + book.Id +
-                          " | Book: " + book.Name +
-                          " | Price: " + book.Price +
-                          " | Stock: " + book.QuantityInStock +
-                          " | Author: " + book.Author +
-                          " | Genre: " + book.Genre +
-                          " | Format: " + book.Format +
-                          " | Language: " + book.Language;
-        }
-        else if (product is Film film)
-        {
-            productInfo = "ID: " + film.Id +
-                          " | Film: " + film.Name +
-                          " | Price: " + film.Price +
-                          " | Stock: " + film.QuantityInStock +
-                          " | Format: " + film.Format +
-                          " | Length: " + film.Length;
-        }
-        else if (product is Game game)
-        {
-            productInfo = "ID: " + game.Id +
-                          " | Game: " + game.Name +
-                          " | Price: " + game.Price +
-                          " | Stock: " + game.QuantityInStock +
-                          " | Platform: " + game.Platform;
-        }
-        else
-        {
-            productInfo = "ID: " + product.Id +
-                          " | Name: " + product.Name +
-                          " | Price: " + product.Price +
-                          " | Stock: " + product.QuantityInStock;
-        }
+                if (product is Book book)
+                {
+                    productInfo = "ID: " + book.Id +
+                                  " | Book: " + book.Name +
+                                  " | Price: " + book.Price +
+                                  " | Stock: " + book.QuantityInStock +
+                                  " | Author: " + book.Author +
+                                  " | Genre: " + book.Genre +
+                                  " | Format: " + book.Format +
+                                  " | Language: " + book.Language;
+                }
+                else if (product is Film film)
+                {
+                    productInfo = "ID: " + film.Id +
+                                  " | Film: " + film.Name +
+                                  " | Price: " + film.Price +
+                                  " | Stock: " + film.QuantityInStock +
+                                  " | Format: " + film.Format +
+                                  " | Length: " + film.Length;
+                }
+                else if (product is Game game)
+                {
+                    productInfo = "ID: " + game.Id +
+                                  " | Game: " + game.Name +
+                                  " | Price: " + game.Price +
+                                  " | Stock: " + game.QuantityInStock +
+                                  " | Platform: " + game.Platform;
+                }
+                else
+                {
+                    productInfo = "ID: " + product.Id +
+                                  " | Name: " + product.Name +
+                                  " | Price: " + product.Price +
+                                  " | Stock: " + product.QuantityInStock;
+                }
 
-        listBox1.Items.Add(productInfo);
-        listBoxCashier.Items.Add(productInfo);
-    }
-}
+                listBox1.Items.Add(productInfo);
+                listBoxCashier.Items.Add(productInfo);
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -86,7 +86,6 @@ namespace Store
             }
 
             Product selectedProduct = storeManager.Products[listBoxCashier.SelectedIndex];
-
             bool sold = storeManager.SellProduct(selectedProduct.Id, 1);
 
             if (sold)
@@ -110,7 +109,6 @@ namespace Store
             }
 
             Product selectedProduct = storeManager.Products[listBox1.SelectedIndex];
-
             bool removed = storeManager.RemoveProduct(selectedProduct.Id);
 
             if (removed)
@@ -137,17 +135,8 @@ namespace Store
             selectedProduct.IncreaseStock(1);
 
             MessageBox.Show("Stock increased by 1");
-
             UpdateProductLists();
-
-
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -157,51 +146,54 @@ namespace Store
         {
             int id;
             int stock;
-            float price; 
+            float price;
 
-            if(!int.TryParse(textId.Text, out id))
+            if (!int.TryParse(textId.Text, out id))
             {
-                MessageBox.Show("ID Invalid");
-                return; 
+                MessageBox.Show("Invalid ID");
+                return;
             }
-            if(!float.TryParse(textPrice.Text, out price))
+
+            if (!float.TryParse(textPrice.Text, out price))
             {
                 MessageBox.Show("Invalid price");
                 return;
             }
-            if(!int.TryParse(textStock.Text, out stock))
+
+            if (!int.TryParse(textStock.Text, out stock))
             {
                 MessageBox.Show("Invalid stock");
-                return; 
+                return;
             }
-            if(string.IsNullOrWhiteSpace(textName.Text) ||
-               string.IsNullOrWhiteSpace(textAuthor.Text) ||
-               string.IsNullOrWhiteSpace(textGenre.Text) ||
-               string.IsNullOrWhiteSpace(textFormat.Text) ||
-               string.IsNullOrWhiteSpace(textLanguage.Text))
 
+            if (string.IsNullOrWhiteSpace(textName.Text) ||
+                string.IsNullOrWhiteSpace(textAuthor.Text) ||
+                string.IsNullOrWhiteSpace(textGenre.Text) ||
+                string.IsNullOrWhiteSpace(textFormat.Text) ||
+                string.IsNullOrWhiteSpace(textLanguage.Text))
             {
                 MessageBox.Show("Please fill in all of the fields");
-                return; 
+                return;
             }
-            foreach ( Product product in storeManager.Products)
+
+            foreach (Product product in storeManager.Products)
             {
-                if(product.Id == id)
+                if (product.Id == id)
                 {
                     MessageBox.Show("A product with this ID already exists");
-                    return; 
+                    return;
                 }
+            }
 
-        }
-        Book newBook = new Book(
-            id,
-            textName.Text,
-            price,
-            stock,
-            textAuthor.Text,
-            textGenre.Text,
-            textFormat.Text,
-            textLanguage.Text
+            Book newBook = new Book(
+                id,
+                textName.Text,
+                price,
+                stock,
+                textAuthor.Text,
+                textGenre.Text,
+                textFormat.Text,
+                textLanguage.Text
             );
 
             storeManager.AddProduct(newBook);
@@ -217,76 +209,75 @@ namespace Store
             textLanguage.Clear();
 
             MessageBox.Show("Book added successfully");
-
         }
-    }
 
-    private void buttonAddFilm_Click(object sender, EventArgs e)
-{
-    int id;
-    int stock;
-    int length;
-    float price;
-
-    if (!int.TryParse(textFilmId.Text, out id))
-    {
-        MessageBox.Show("Invalid ID");
-        return;
-    }
-
-    if (!float.TryParse(textFilmPrice.Text, out price))
-    {
-        MessageBox.Show("Invalid price");
-        return;
-    }
-
-    if (!int.TryParse(textFilmStock.Text, out stock))
-    {
-        MessageBox.Show("Invalid stock");
-        return;
-    }
-
-    if (!int.TryParse(textFilmLength.Text, out length))
-    {
-        MessageBox.Show("Invalid length");
-        return;
-    }
-
-    if (string.IsNullOrWhiteSpace(textFilmName.Text) ||
-        string.IsNullOrWhiteSpace(textFilmFormat.Text))
-    {
-        MessageBox.Show("Please fill in all fields");
-        return;
-    }
-
-    foreach (Product product in storeManager.Products)
-    {
-        if (product.Id == id)
+        private void buttonAddFilm_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("A product with this ID already exists");
-            return;
+            int id;
+            int stock;
+            int length;
+            float price;
+
+            if (!int.TryParse(textFilmId.Text, out id))
+            {
+                MessageBox.Show("Invalid ID");
+                return;
+            }
+
+            if (!float.TryParse(textFilmPrice.Text, out price))
+            {
+                MessageBox.Show("Invalid price");
+                return;
+            }
+
+            if (!int.TryParse(textFilmStock.Text, out stock))
+            {
+                MessageBox.Show("Invalid stock");
+                return;
+            }
+
+            if (!int.TryParse(textFilmLength.Text, out length))
+            {
+                MessageBox.Show("Invalid length");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(textFilmName.Text) ||
+                string.IsNullOrWhiteSpace(textFilmFormat.Text))
+            {
+                MessageBox.Show("Please fill in all fields");
+                return;
+            }
+
+            foreach (Product product in storeManager.Products)
+            {
+                if (product.Id == id)
+                {
+                    MessageBox.Show("A product with this ID already exists");
+                    return;
+                }
+            }
+
+            Film newFilm = new Film(
+                id,
+                textFilmName.Text,
+                price,
+                stock,
+                textFilmFormat.Text,
+                length
+            );
+
+            storeManager.AddProduct(newFilm);
+            UpdateProductLists();
+
+            textFilmId.Clear();
+            textFilmName.Clear();
+            textFilmPrice.Clear();
+            textFilmStock.Clear();
+            textFilmFormat.Clear();
+            textFilmLength.Clear();
+
+            MessageBox.Show("Film added successfully");
         }
     }
-
-    Film newFilm = new Film(
-        id,
-        textFilmName.Text,
-        price,
-        stock,
-        textFilmFormat.Text,
-        length
-    );
-
-    storeManager.AddProduct(newFilm);
-    UpdateProductLists();
-
-    textFilmId.Clear();
-    textFilmName.Clear();
-    textFilmPrice.Clear();
-    textFilmStock.Clear();
-    textFilmFormat.Clear();
-    textFilmLength.Clear();
-
-    MessageBox.Show("Film added successfully");
-}
 }
