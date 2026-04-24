@@ -280,19 +280,64 @@ namespace Store
             MessageBox.Show("Film added successfully");
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void buttonAddGame_Click(object sender, EventArgs e)
         {
+            int id;
+            int stock;
+            float price;
 
-        }
+            if (!int.TryParse(textGameId.Text, out id))
+            {
+                MessageBox.Show("Invalid ID");
+                return;
+            }
 
-        private void label23_Click(object sender, EventArgs e)
-        {
+            if (!float.TryParse(textGamePrice.Text, out price))
+            {
+                MessageBox.Show("Invalid price");
+                return;
+            }
 
-        }
+            if (!int.TryParse(textGameStock.Text, out stock))
+            {
+                MessageBox.Show("Invalid stock");
+                return;
+            }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+            if (string.IsNullOrWhiteSpace(textGameName.Text) ||
+                string.IsNullOrWhiteSpace(textGamePlatform.Text))
+            {
+                MessageBox.Show("Please fill in all fields");
+                return;
+            }
 
+            foreach (Product product in storeManager.Products)
+            {
+                if (product.Id == id)
+                {
+                    MessageBox.Show("A product with this ID already exists");
+                    return;
+                }
+            }
+
+            Game newGame = new Game(
+                id,
+                textGameName.Text,
+                price,
+                stock,
+                textGamePlatform.Text
+            );
+
+            storeManager.AddProduct(newGame);
+            UpdateProductLists();
+
+            textGameId.Clear();
+            textGameName.Clear();
+            textGamePrice.Clear();
+            textGameStock.Clear();
+            textGamePlatform.Clear();
+
+            MessageBox.Show("Game added successfully");
         }
     }
 }

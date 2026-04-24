@@ -22,10 +22,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             listBox1 = new ListBox();
@@ -36,6 +32,18 @@
             button4 = new Button();
             tabControl1 = new TabControl();
             Stock = new TabPage();
+            buttonAddGame = new Button();
+            label23 = new Label();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            textGamePlatform = new TextBox();
+            textGameStock = new TextBox();
+            textGamePrice = new TextBox();
+            textGameName = new TextBox();
+            textGameId = new TextBox();
             buttonAddFilm = new Button();
             label17 = new Label();
             textFilmLength = new TextBox();
@@ -71,18 +79,6 @@
             textName = new TextBox();
             textId = new TextBox();
             Cashier = new TabPage();
-            textGameId = new TextBox();
-            textGameName = new TextBox();
-            textGamePrice = new TextBox();
-            textGameStock = new TextBox();
-            textGamePlatform = new TextBox();
-            label18 = new Label();
-            label19 = new Label();
-            label20 = new Label();
-            label21 = new Label();
-            label22 = new Label();
-            label23 = new Label();
-            button2 = new Button();
             tabControl1.SuspendLayout();
             Stock.SuspendLayout();
             Cashier.SuspendLayout();
@@ -99,12 +95,11 @@
             // 
             // listBoxCashier
             // 
-            listBoxCashier.AllowDrop = true;
             listBoxCashier.FormattingEnabled = true;
             listBoxCashier.ItemHeight = 15;
             listBoxCashier.Location = new Point(15, 16);
             listBoxCashier.Name = "listBoxCashier";
-            listBoxCashier.Size = new Size(250, 94);
+            listBoxCashier.Size = new Size(650, 94);
             listBoxCashier.TabIndex = 1;
             // 
             // button1
@@ -119,7 +114,7 @@
             // 
             // buttonSellProduct
             // 
-            buttonSellProduct.Location = new Point(36, 138);
+            buttonSellProduct.Location = new Point(15, 128);
             buttonSellProduct.Name = "buttonSellProduct";
             buttonSellProduct.Size = new Size(140, 23);
             buttonSellProduct.TabIndex = 3;
@@ -159,7 +154,7 @@
             // 
             // Stock
             // 
-            Stock.Controls.Add(button2);
+            Stock.Controls.Add(buttonAddGame);
             Stock.Controls.Add(label23);
             Stock.Controls.Add(label22);
             Stock.Controls.Add(label21);
@@ -216,6 +211,105 @@
             Stock.TabIndex = 0;
             Stock.Text = "Stock";
             Stock.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddGame
+            // 
+            buttonAddGame.Location = new Point(629, 399);
+            buttonAddGame.Name = "buttonAddGame";
+            buttonAddGame.Size = new Size(90, 23);
+            buttonAddGame.TabIndex = 51;
+            buttonAddGame.Text = "Add Game";
+            buttonAddGame.UseVisualStyleBackColor = true;
+            buttonAddGame.Click += buttonAddGame_Click;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(543, 303);
+            label23.Name = "label23";
+            label23.Size = new Size(57, 15);
+            label23.TabIndex = 50;
+            label23.Text = "Platform";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(665, 258);
+            label22.Name = "label22";
+            label22.Size = new Size(36, 15);
+            label22.TabIndex = 49;
+            label22.Text = "Stock";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(543, 258);
+            label21.Name = "label21";
+            label21.Size = new Size(33, 15);
+            label21.TabIndex = 48;
+            label21.Text = "Price";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(665, 215);
+            label20.Name = "label20";
+            label20.Size = new Size(39, 15);
+            label20.TabIndex = 47;
+            label20.Text = "Name";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(543, 215);
+            label19.Name = "label19";
+            label19.Size = new Size(18, 15);
+            label19.TabIndex = 46;
+            label19.Text = "ID";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(563, 200);
+            label18.Name = "label18";
+            label18.Size = new Size(38, 15);
+            label18.TabIndex = 45;
+            label18.Text = "Game";
+            // 
+            // textGamePlatform
+            // 
+            textGamePlatform.Location = new Point(543, 321);
+            textGamePlatform.Name = "textGamePlatform";
+            textGamePlatform.Size = new Size(100, 23);
+            textGamePlatform.TabIndex = 44;
+            // 
+            // textGameStock
+            // 
+            textGameStock.Location = new Point(665, 271);
+            textGameStock.Name = "textGameStock";
+            textGameStock.Size = new Size(100, 23);
+            textGameStock.TabIndex = 43;
+            // 
+            // textGamePrice
+            // 
+            textGamePrice.Location = new Point(543, 271);
+            textGamePrice.Name = "textGamePrice";
+            textGamePrice.Size = new Size(100, 23);
+            textGamePrice.TabIndex = 42;
+            // 
+            // textGameName
+            // 
+            textGameName.Location = new Point(665, 233);
+            textGameName.Name = "textGameName";
+            textGameName.Size = new Size(100, 23);
+            textGameName.TabIndex = 41;
+            // 
+            // textGameId
+            // 
+            textGameId.Location = new Point(543, 233);
+            textGameId.Name = "textGameId";
+            textGameId.Size = new Size(100, 23);
+            textGameId.TabIndex = 40;
             // 
             // buttonAddFilm
             // 
@@ -507,107 +601,6 @@
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
             // 
-            // textGameId
-            // 
-            textGameId.Location = new Point(543, 233);
-            textGameId.Name = "textGameId";
-            textGameId.Size = new Size(100, 23);
-            textGameId.TabIndex = 40;
-            // 
-            // textGameName
-            // 
-            textGameName.Location = new Point(665, 233);
-            textGameName.Name = "textGameName";
-            textGameName.Size = new Size(100, 23);
-            textGameName.TabIndex = 41;
-            // 
-            // textGamePrice
-            // 
-            textGamePrice.Location = new Point(543, 271);
-            textGamePrice.Name = "textGamePrice";
-            textGamePrice.Size = new Size(100, 23);
-            textGamePrice.TabIndex = 42;
-            // 
-            // textGameStock
-            // 
-            textGameStock.Location = new Point(665, 271);
-            textGameStock.Name = "textGameStock";
-            textGameStock.Size = new Size(100, 23);
-            textGameStock.TabIndex = 43;
-            // 
-            // textGamePlatform
-            // 
-            textGamePlatform.Location = new Point(543, 321);
-            textGamePlatform.Name = "textGamePlatform";
-            textGamePlatform.Size = new Size(100, 23);
-            textGamePlatform.TabIndex = 44;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(563, 200);
-            label18.Name = "label18";
-            label18.Size = new Size(38, 15);
-            label18.TabIndex = 45;
-            label18.Text = "Game";
-            label18.Click += label18_Click;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(543, 215);
-            label19.Name = "label19";
-            label19.Size = new Size(18, 15);
-            label19.TabIndex = 46;
-            label19.Text = "ID";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(665, 215);
-            label20.Name = "label20";
-            label20.Size = new Size(39, 15);
-            label20.TabIndex = 47;
-            label20.Text = "Name";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(543, 258);
-            label21.Name = "label21";
-            label21.Size = new Size(33, 15);
-            label21.TabIndex = 48;
-            label21.Text = "Price";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(665, 258);
-            label22.Name = "label22";
-            label22.Size = new Size(36, 15);
-            label22.TabIndex = 49;
-            label22.Text = "Stock";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(543, 303);
-            label23.Name = "label23";
-            label23.Size = new Size(57, 15);
-            label23.TabIndex = 50;
-            label23.Text = "Plattform";
-            label23.Click += label23_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(629, 399);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 51;
-            button2.Text = "Add Game";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -679,6 +672,6 @@
         private Label label21;
         private Label label20;
         private Label label19;
-        private Button button2;
+        private Button buttonAddGame;
     }
 }
