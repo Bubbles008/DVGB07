@@ -192,7 +192,6 @@
             Stock.TabIndex = 0;
             Stock.Text = "Stock";
             Stock.UseVisualStyleBackColor = true;
-            Stock.Click += Stock_Click;
             // 
             // buttonAddFilm
             // 
@@ -212,7 +211,7 @@
             label17.Size = new Size(30, 15);
             label17.TabIndex = 38;
             label17.Text = "Film";
-            label17.Click += label17_Click;
+            
             // 
             // textFilmLength
             // 
@@ -318,7 +317,7 @@
             label10.Size = new Size(34, 15);
             label10.TabIndex = 25;
             label10.Text = "Book";
-            label10.Click += label10_Click;
+            
             // 
             // label9
             // 
@@ -328,7 +327,7 @@
             label9.Size = new Size(59, 15);
             label9.TabIndex = 24;
             label9.Text = "Language";
-            label9.Click += label9_Click;
+           
             // 
             // label8
             // 
@@ -391,7 +390,7 @@
             label2.Name = "label2";
             label2.Size = new Size(0, 15);
             label2.TabIndex = 17;
-            label2.Click += label2_Click;
+            
             // 
             // label1
             // 
@@ -409,7 +408,6 @@
             ID.Size = new Size(18, 15);
             ID.TabIndex = 15;
             ID.Text = "ID";
-            ID.Click += label1_Click;
             // 
             // buttonAddBook
             // 

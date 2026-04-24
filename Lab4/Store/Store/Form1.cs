@@ -220,4 +220,73 @@ namespace Store
 
         }
     }
+
+    private void buttonAddFilm_Click(object sender, EventArgs e)
+{
+    int id;
+    int stock;
+    int length;
+    float price;
+
+    if (!int.TryParse(textFilmId.Text, out id))
+    {
+        MessageBox.Show("Invalid ID");
+        return;
+    }
+
+    if (!float.TryParse(textFilmPrice.Text, out price))
+    {
+        MessageBox.Show("Invalid price");
+        return;
+    }
+
+    if (!int.TryParse(textFilmStock.Text, out stock))
+    {
+        MessageBox.Show("Invalid stock");
+        return;
+    }
+
+    if (!int.TryParse(textFilmLength.Text, out length))
+    {
+        MessageBox.Show("Invalid length");
+        return;
+    }
+
+    if (string.IsNullOrWhiteSpace(textFilmName.Text) ||
+        string.IsNullOrWhiteSpace(textFilmFormat.Text))
+    {
+        MessageBox.Show("Please fill in all fields");
+        return;
+    }
+
+    foreach (Product product in storeManager.Products)
+    {
+        if (product.Id == id)
+        {
+            MessageBox.Show("A product with this ID already exists");
+            return;
+        }
+    }
+
+    Film newFilm = new Film(
+        id,
+        textFilmName.Text,
+        price,
+        stock,
+        textFilmFormat.Text,
+        length
+    );
+
+    storeManager.AddProduct(newFilm);
+    UpdateProductLists();
+
+    textFilmId.Clear();
+    textFilmName.Clear();
+    textFilmPrice.Clear();
+    textFilmStock.Clear();
+    textFilmFormat.Clear();
+    textFilmLength.Clear();
+
+    MessageBox.Show("Film added successfully");
+}
 }
