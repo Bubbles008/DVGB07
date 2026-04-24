@@ -139,10 +139,10 @@
             // 
             tabControl1.Controls.Add(Stock);
             tabControl1.Controls.Add(Cashier);
-            tabControl1.Location = new Point(-1, 2);
+            tabControl1.Location = new Point(-1, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(789, 452);
+            tabControl1.Size = new Size(801, 453);
             tabControl1.TabIndex = 6;
             // 
             // Stock
@@ -188,7 +188,7 @@
             Stock.Location = new Point(4, 24);
             Stock.Name = "Stock";
             Stock.Padding = new Padding(3);
-            Stock.Size = new Size(781, 424);
+            Stock.Size = new Size(793, 425);
             Stock.TabIndex = 0;
             Stock.Text = "Stock";
             Stock.UseVisualStyleBackColor = true;
@@ -196,7 +196,7 @@
             // 
             // buttonAddFilm
             // 
-            buttonAddFilm.Location = new Point(353, 395);
+            buttonAddFilm.Location = new Point(353, 399);
             buttonAddFilm.Name = "buttonAddFilm";
             buttonAddFilm.Size = new Size(75, 23);
             buttonAddFilm.TabIndex = 39;
@@ -484,7 +484,7 @@
             Cashier.Location = new Point(4, 24);
             Cashier.Name = "Cashier";
             Cashier.Padding = new Padding(3);
-            Cashier.Size = new Size(781, 424);
+            Cashier.Size = new Size(793, 425);
             Cashier.TabIndex = 1;
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
