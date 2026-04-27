@@ -137,11 +137,6 @@ namespace Store
             MessageBox.Show("Purchase completed");
         }
 
-        private void buttonSellProduct_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Use Add To Cart and Checkout instead of direct sale.");
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex == -1)

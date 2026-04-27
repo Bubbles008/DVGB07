@@ -28,7 +28,6 @@
             listBoxCashier = new ListBox();
             listBoxCart = new ListBox();
             button1 = new Button();
-            buttonSellProduct = new Button();
             buttonAddToCart = new Button();
             buttonCheckout = new Button();
             button3 = new Button();
@@ -126,16 +125,8 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // buttonSellProduct
-            // 
-            buttonSellProduct.Location = new Point(15, 320);
-            buttonSellProduct.Name = "buttonSellProduct";
-            buttonSellProduct.Size = new Size(140, 23);
-            buttonSellProduct.TabIndex = 3;
-            buttonSellProduct.Text = "Direct Sell (unused)";
-            buttonSellProduct.UseVisualStyleBackColor = true;
-            buttonSellProduct.Click += buttonSellProduct_Click;
-            // 
+           
+
             // buttonAddToCart
             // 
             buttonAddToCart.Location = new Point(15, 140);
@@ -631,7 +622,6 @@
             Cashier.Controls.Add(buttonAddToCart);
             Cashier.Controls.Add(listBoxCart);
             Cashier.Controls.Add(listBoxCashier);
-            Cashier.Controls.Add(buttonSellProduct);
             Cashier.Location = new Point(4, 24);
             Cashier.Name = "Cashier";
             Cashier.Padding = new Padding(3);
@@ -680,7 +670,6 @@
         private ListBox listBoxCashier;
         private ListBox listBoxCart;
         private Button button1;
-        private Button buttonSellProduct;
         private Button buttonAddToCart;
         private Button buttonCheckout;
         private Button button3;

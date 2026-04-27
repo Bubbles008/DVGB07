@@ -23,7 +23,7 @@ namespace Store.Logic
 
         public bool RemoveProduct(int id)
         {
-            Product productToRemove = Products.Find(p => p.Id == id);
+            Product? productToRemove = Products.Find(p => p.Id == id);
 
             if (productToRemove != null && productToRemove.QuantityInStock == 0)
             {
@@ -36,7 +36,7 @@ namespace Store.Logic
 
         public bool SellProduct(int id, int amount)
         {
-            Product product = Products.Find(p => p.Id == id);
+            Product? product = Products.Find(p => p.Id == id);
 
             if (product != null && product.IsAvailable(amount))
             {
