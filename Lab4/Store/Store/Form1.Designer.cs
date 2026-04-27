@@ -79,6 +79,9 @@
             textName = new TextBox();
             textId = new TextBox();
             Cashier = new TabPage();
+            listBoxCart = new ListBox();
+            buttonAddToCart = new Button();
+            buttonCheckout = new Button();
             tabControl1.SuspendLayout();
             Stock.SuspendLayout();
             Cashier.SuspendLayout();
@@ -227,7 +230,7 @@
             label23.AutoSize = true;
             label23.Location = new Point(543, 303);
             label23.Name = "label23";
-            label23.Size = new Size(57, 15);
+            label23.Size = new Size(53, 15);
             label23.TabIndex = 50;
             label23.Text = "Platform";
             // 
@@ -591,6 +594,9 @@
             // 
             // Cashier
             // 
+            Cashier.Controls.Add(buttonCheckout);
+            Cashier.Controls.Add(buttonAddToCart);
+            Cashier.Controls.Add(listBoxCart);
             Cashier.Controls.Add(listBoxCashier);
             Cashier.Controls.Add(buttonSellProduct);
             Cashier.Location = new Point(4, 24);
@@ -600,6 +606,35 @@
             Cashier.TabIndex = 1;
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
+            // 
+            // listBoxCart
+            // 
+            listBoxCart.FormattingEnabled = true;
+            listBoxCart.ItemHeight = 15;
+            listBoxCart.Location = new Point(619, 128);
+            listBoxCart.Name = "listBoxCart";
+            listBoxCart.Size = new Size(166, 244);
+            listBoxCart.TabIndex = 4;
+            // 
+            // buttonAddToCart
+            // 
+            buttonAddToCart.Location = new Point(15, 157);
+            buttonAddToCart.Name = "buttonAddToCart";
+            buttonAddToCart.Size = new Size(140, 24);
+            buttonAddToCart.TabIndex = 5;
+            buttonAddToCart.Text = "Add To Cart";
+            buttonAddToCart.UseVisualStyleBackColor = true;
+            buttonAddToCart.Click += buttonAddToCart_Click;
+            // 
+            // buttonCheckout
+            // 
+            buttonCheckout.Location = new Point(668, 390);
+            buttonCheckout.Name = "buttonCheckout";
+            buttonCheckout.Size = new Size(75, 23);
+            buttonCheckout.TabIndex = 6;
+            buttonCheckout.Text = "Add To Cart";
+            buttonCheckout.UseVisualStyleBackColor = true;
+            buttonCheckout.Click += buttonCheckout_Click;
             // 
             // Form1
             // 
@@ -673,5 +708,8 @@
         private Label label20;
         private Label label19;
         private Button buttonAddGame;
+        private Button buttonCheckout;
+        private Button buttonAddToCart;
+        private ListBox listBoxCart;
     }
 }
