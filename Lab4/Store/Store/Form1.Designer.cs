@@ -669,7 +669,6 @@
         private ListBox listBox1;
         private ListBox listBoxCashier;
         private ListBox listBoxCart;
-        private Button button1;
         private Button buttonAddToCart;
         private Button buttonCheckout;
         private Button button3;
