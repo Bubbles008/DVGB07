@@ -398,15 +398,5 @@ namespace Store
 
             MessageBox.Show("Game added successfully");
         }
-
-        private void buttonCheckout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonAddToCart_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
