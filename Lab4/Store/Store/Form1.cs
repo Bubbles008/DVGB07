@@ -20,9 +20,9 @@ namespace Store
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-{
-    csvHandler.SaveProducts(storeManager.Products);
-}
+        {
+            csvHandler.SaveProducts(storeManager.Products);
+        }
 
         private void UpdateProductLists()
         {
@@ -188,9 +188,9 @@ namespace Store
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             storeManager.Products = csvHandler.LoadProducts();
-             UpdateProductLists();
-             UpdateCartList();
+            storeManager.Products = csvHandler.LoadProducts();
+            UpdateProductLists();
+            UpdateCartList();
         }
 
         private void buttonAddBook_Click(object sender, EventArgs e)

@@ -27,7 +27,6 @@
             listBox1 = new ListBox();
             listBoxCashier = new ListBox();
             listBoxCart = new ListBox();
-            button1 = new Button();
             buttonAddToCart = new Button();
             buttonCheckout = new Button();
             button3 = new Button();
@@ -115,18 +114,6 @@
             listBoxCart.Size = new Size(350, 94);
             listBoxCart.TabIndex = 2;
             // 
-            // button1
-            // 
-            button1.Location = new Point(9, 110);
-            button1.Name = "button1";
-            button1.Size = new Size(140, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Load Test Products";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-           
-
             // buttonAddToCart
             // 
             buttonAddToCart.Location = new Point(15, 140);
@@ -149,7 +136,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(155, 110);
+            button3.Location = new Point(9, 110);
             button3.Name = "button3";
             button3.Size = new Size(140, 23);
             button3.TabIndex = 4;
@@ -227,7 +214,6 @@
             Stock.Controls.Add(textId);
             Stock.Controls.Add(listBox1);
             Stock.Controls.Add(button4);
-            Stock.Controls.Add(button1);
             Stock.Controls.Add(button3);
             Stock.Location = new Point(4, 24);
             Stock.Name = "Stock";
@@ -252,7 +238,7 @@
             label23.AutoSize = true;
             label23.Location = new Point(543, 303);
             label23.Name = "label23";
-            label23.Size = new Size(57, 15);
+            label23.Size = new Size(53, 15);
             label23.TabIndex = 50;
             label23.Text = "Platform";
             // 
@@ -630,15 +616,6 @@
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
             // 
-            // labelProducts
-            // 
-            labelProducts.AutoSize = true;
-            labelProducts.Location = new Point(15, 13);
-            labelProducts.Name = "labelProducts";
-            labelProducts.Size = new Size(94, 15);
-            labelProducts.TabIndex = 6;
-            labelProducts.Text = "Available items";
-            // 
             // labelCart
             // 
             labelCart.AutoSize = true;
@@ -647,6 +624,15 @@
             labelCart.Size = new Size(29, 15);
             labelCart.TabIndex = 7;
             labelCart.Text = "Cart";
+            // 
+            // labelProducts
+            // 
+            labelProducts.AutoSize = true;
+            labelProducts.Location = new Point(15, 13);
+            labelProducts.Name = "labelProducts";
+            labelProducts.Size = new Size(87, 15);
+            labelProducts.TabIndex = 6;
+            labelProducts.Text = "Available items";
             // 
             // Form1
             // 
