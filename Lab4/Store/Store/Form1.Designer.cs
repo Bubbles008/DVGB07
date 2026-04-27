@@ -26,8 +26,11 @@
         {
             listBox1 = new ListBox();
             listBoxCashier = new ListBox();
+            listBoxCart = new ListBox();
             button1 = new Button();
             buttonSellProduct = new Button();
+            buttonAddToCart = new Button();
+            buttonCheckout = new Button();
             button3 = new Button();
             button4 = new Button();
             tabControl1 = new TabControl();
@@ -79,9 +82,14 @@
             textName = new TextBox();
             textId = new TextBox();
             Cashier = new TabPage();
+<<<<<<< HEAD
             listBoxCart = new ListBox();
             buttonAddToCart = new Button();
             buttonCheckout = new Button();
+=======
+            labelCart = new Label();
+            labelProducts = new Label();
+>>>>>>> dcaefb7 (Adding to cart-functions)
             tabControl1.SuspendLayout();
             Stock.SuspendLayout();
             Cashier.SuspendLayout();
@@ -100,10 +108,19 @@
             // 
             listBoxCashier.FormattingEnabled = true;
             listBoxCashier.ItemHeight = 15;
-            listBoxCashier.Location = new Point(15, 16);
+            listBoxCashier.Location = new Point(15, 31);
             listBoxCashier.Name = "listBoxCashier";
-            listBoxCashier.Size = new Size(650, 94);
+            listBoxCashier.Size = new Size(350, 94);
             listBoxCashier.TabIndex = 1;
+            // 
+            // listBoxCart
+            // 
+            listBoxCart.FormattingEnabled = true;
+            listBoxCart.ItemHeight = 15;
+            listBoxCart.Location = new Point(390, 31);
+            listBoxCart.Name = "listBoxCart";
+            listBoxCart.Size = new Size(350, 94);
+            listBoxCart.TabIndex = 2;
             // 
             // button1
             // 
@@ -117,13 +134,33 @@
             // 
             // buttonSellProduct
             // 
-            buttonSellProduct.Location = new Point(15, 128);
+            buttonSellProduct.Location = new Point(15, 320);
             buttonSellProduct.Name = "buttonSellProduct";
             buttonSellProduct.Size = new Size(140, 23);
             buttonSellProduct.TabIndex = 3;
-            buttonSellProduct.Text = "Sell Selected Product";
+            buttonSellProduct.Text = "Direct Sell (unused)";
             buttonSellProduct.UseVisualStyleBackColor = true;
             buttonSellProduct.Click += buttonSellProduct_Click;
+            // 
+            // buttonAddToCart
+            // 
+            buttonAddToCart.Location = new Point(15, 140);
+            buttonAddToCart.Name = "buttonAddToCart";
+            buttonAddToCart.Size = new Size(120, 23);
+            buttonAddToCart.TabIndex = 4;
+            buttonAddToCart.Text = "Add To Cart";
+            buttonAddToCart.UseVisualStyleBackColor = true;
+            buttonAddToCart.Click += buttonAddToCart_Click;
+            // 
+            // buttonCheckout
+            // 
+            buttonCheckout.Location = new Point(390, 140);
+            buttonCheckout.Name = "buttonCheckout";
+            buttonCheckout.Size = new Size(120, 23);
+            buttonCheckout.TabIndex = 5;
+            buttonCheckout.Text = "Checkout";
+            buttonCheckout.UseVisualStyleBackColor = true;
+            buttonCheckout.Click += buttonCheckout_Click;
             // 
             // button3
             // 
@@ -594,6 +631,11 @@
             // 
             // Cashier
             // 
+<<<<<<< HEAD
+=======
+            Cashier.Controls.Add(labelCart);
+            Cashier.Controls.Add(labelProducts);
+>>>>>>> dcaefb7 (Adding to cart-functions)
             Cashier.Controls.Add(buttonCheckout);
             Cashier.Controls.Add(buttonAddToCart);
             Cashier.Controls.Add(listBoxCart);
@@ -607,6 +649,7 @@
             Cashier.Text = "Cashier";
             Cashier.UseVisualStyleBackColor = true;
             // 
+<<<<<<< HEAD
             // listBoxCart
             // 
             listBoxCart.FormattingEnabled = true;
@@ -635,6 +678,25 @@
             buttonCheckout.Text = "Add To Cart";
             buttonCheckout.UseVisualStyleBackColor = true;
             buttonCheckout.Click += buttonCheckout_Click;
+=======
+            // labelProducts
+            // 
+            labelProducts.AutoSize = true;
+            labelProducts.Location = new Point(15, 13);
+            labelProducts.Name = "labelProducts";
+            labelProducts.Size = new Size(94, 15);
+            labelProducts.TabIndex = 6;
+            labelProducts.Text = "Available items";
+            // 
+            // labelCart
+            // 
+            labelCart.AutoSize = true;
+            labelCart.Location = new Point(390, 13);
+            labelCart.Name = "labelCart";
+            labelCart.Size = new Size(29, 15);
+            labelCart.TabIndex = 7;
+            labelCart.Text = "Cart";
+>>>>>>> dcaefb7 (Adding to cart-functions)
             // 
             // Form1
             // 
@@ -649,14 +711,18 @@
             Stock.ResumeLayout(false);
             Stock.PerformLayout();
             Cashier.ResumeLayout(false);
+            Cashier.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private ListBox listBox1;
         private ListBox listBoxCashier;
+        private ListBox listBoxCart;
         private Button button1;
         private Button buttonSellProduct;
+        private Button buttonAddToCart;
+        private Button buttonCheckout;
         private Button button3;
         private Button button4;
         private TabControl tabControl1;
@@ -708,8 +774,13 @@
         private Label label20;
         private Label label19;
         private Button buttonAddGame;
+<<<<<<< HEAD
         private Button buttonCheckout;
         private Button buttonAddToCart;
         private ListBox listBoxCart;
+=======
+        private Label labelCart;
+        private Label labelProducts;
+>>>>>>> dcaefb7 (Adding to cart-functions)
     }
 }

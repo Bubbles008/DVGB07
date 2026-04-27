@@ -6,6 +6,7 @@ namespace Store
     public partial class Form1 : Form
     {
         private StoreManager storeManager = new StoreManager();
+        private ShoppingCart shoppingCart = new ShoppingCart();
 
         public Form1()
         {
@@ -62,9 +63,24 @@ namespace Store
             }
         }
 
+        private void UpdateCartList()
+        {
+            listBoxCart.Items.Clear();
+
+            foreach (Product product in shoppingCart.Items)
+            {
+                string cartInfo = "ID: " + product.Id +
+                                  " | " + product.Name +
+                                  " | Price: " + product.Price;
+
+                listBoxCart.Items.Add(cartInfo);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             storeManager.Products.Clear();
+            shoppingCart.Items.Clear();
 
             Book book = new Book(1, "Harry Potter", 199.0f, 10, "J.K. Rowling", "Fantasy", "Hardcover", "English");
             Film film = new Film(2, "Interception", 149.0f, 5, "Blu-ray", 148);
@@ -75,9 +91,10 @@ namespace Store
             storeManager.AddProduct(game);
 
             UpdateProductLists();
+            UpdateCartList();
         }
 
-        private void buttonSellProduct_Click(object sender, EventArgs e)
+        private void buttonAddToCart_Click(object sender, EventArgs e)
         {
             if (listBoxCashier.SelectedIndex == -1)
             {
@@ -86,18 +103,43 @@ namespace Store
             }
 
             Product selectedProduct = storeManager.Products[listBoxCashier.SelectedIndex];
-            bool sold = storeManager.SellProduct(selectedProduct.Id, 1);
 
-            if (sold)
+            if (selectedProduct.QuantityInStock <= 0)
             {
-                MessageBox.Show("Product sold successfully");
+                MessageBox.Show("This product is out of stock");
+                return;
             }
-            else
+
+            shoppingCart.AddItem(selectedProduct);
+            UpdateCartList();
+
+            MessageBox.Show("Product added to cart");
+        }
+
+        private void buttonCheckout_Click(object sender, EventArgs e)
+        {
+            if (shoppingCart.Items.Count == 0)
             {
-                MessageBox.Show("Not enough items in stock");
+                MessageBox.Show("The cart is empty");
+                return;
             }
+
+            foreach (Product product in shoppingCart.Items)
+            {
+                storeManager.SellProduct(product.Id, 1);
+            }
+
+            shoppingCart.Items.Clear();
 
             UpdateProductLists();
+            UpdateCartList();
+
+            MessageBox.Show("Purchase completed");
+        }
+
+        private void buttonSellProduct_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Use Add To Cart and Checkout instead of direct sale.");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -109,6 +151,22 @@ namespace Store
             }
 
             Product selectedProduct = storeManager.Products[listBox1.SelectedIndex];
+
+            if (selectedProduct.QuantityInStock != 0)
+            {
+                DialogResult result = MessageBox.Show(
+                    "This product still has stock. Do you really want to remove it?",
+                    "Confirm removal",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
             bool removed = storeManager.RemoveProduct(selectedProduct.Id);
 
             if (removed)
@@ -117,7 +175,8 @@ namespace Store
             }
             else
             {
-                MessageBox.Show("Could not remove product, product can only be removed when stock is 0");
+                storeManager.Products.Remove(selectedProduct);
+                MessageBox.Show("Product removed successfully");
             }
 
             UpdateProductLists();
@@ -154,13 +213,13 @@ namespace Store
                 return;
             }
 
-            if (!float.TryParse(textPrice.Text, out price))
+            if (!float.TryParse(textPrice.Text, out price) || price < 0)
             {
                 MessageBox.Show("Invalid price");
                 return;
             }
 
-            if (!int.TryParse(textStock.Text, out stock))
+            if (!int.TryParse(textStock.Text, out stock) || stock < 0)
             {
                 MessageBox.Show("Invalid stock");
                 return;
@@ -224,19 +283,19 @@ namespace Store
                 return;
             }
 
-            if (!float.TryParse(textFilmPrice.Text, out price))
+            if (!float.TryParse(textFilmPrice.Text, out price) || price < 0)
             {
                 MessageBox.Show("Invalid price");
                 return;
             }
 
-            if (!int.TryParse(textFilmStock.Text, out stock))
+            if (!int.TryParse(textFilmStock.Text, out stock) || stock < 0)
             {
                 MessageBox.Show("Invalid stock");
                 return;
             }
 
-            if (!int.TryParse(textFilmLength.Text, out length))
+            if (!int.TryParse(textFilmLength.Text, out length) || length < 0)
             {
                 MessageBox.Show("Invalid length");
                 return;
@@ -292,13 +351,13 @@ namespace Store
                 return;
             }
 
-            if (!float.TryParse(textGamePrice.Text, out price))
+            if (!float.TryParse(textGamePrice.Text, out price) || price < 0)
             {
                 MessageBox.Show("Invalid price");
                 return;
             }
 
-            if (!int.TryParse(textGameStock.Text, out stock))
+            if (!int.TryParse(textGameStock.Text, out stock) || stock < 0)
             {
                 MessageBox.Show("Invalid stock");
                 return;
