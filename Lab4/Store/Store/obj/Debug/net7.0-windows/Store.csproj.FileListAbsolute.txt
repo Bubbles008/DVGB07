@@ -1,0 +1,17 @@
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\bin\Debug\net7.0-windows\Store.exe
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\bin\Debug\net7.0-windows\Store.deps.json
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\bin\Debug\net7.0-windows\Store.runtimeconfig.json
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\bin\Debug\net7.0-windows\Store.dll
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\bin\Debug\net7.0-windows\Store.pdb
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.csproj.AssemblyReference.cache
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.Form1.resources
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.csproj.GenerateResource.cache
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.AssemblyInfoInputs.cache
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.AssemblyInfo.cs
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.csproj.CoreCompileInputs.cache
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.dll
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\refint\Store.dll
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.pdb
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\Store.genruntimeconfig.cache
+C:\Users\helikala100\Source\Repos\Bubbles008\DVGB07\Lab4\Store\Store\obj\Debug\net7.0-windows\ref\Store.dll

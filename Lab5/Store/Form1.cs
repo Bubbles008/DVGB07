@@ -392,5 +392,19 @@ namespace Store
 
             MessageBox.Show("Game added successfully");
         }
+
+        private async void buttonSyncApi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string response = await apiHandler.GetApiResponseAsync();
+                MessageBox.Show(response);
+            }
+            catch (Exception ex)
+            { 
+                MessageBox.Show("Error while fetching API data: " + ex.Message);
+            }
+
+        }
     }
 }

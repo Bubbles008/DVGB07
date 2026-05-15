@@ -82,6 +82,7 @@
             Cashier = new TabPage();
             labelCart = new Label();
             labelProducts = new Label();
+            buttonSyncApi = new Button();
             tabControl1.SuspendLayout();
             Stock.SuspendLayout();
             Cashier.SuspendLayout();
@@ -166,6 +167,7 @@
             // 
             // Stock
             // 
+            Stock.Controls.Add(buttonSyncApi);
             Stock.Controls.Add(buttonAddGame);
             Stock.Controls.Add(label23);
             Stock.Controls.Add(label22);
@@ -634,6 +636,16 @@
             labelProducts.TabIndex = 6;
             labelProducts.Text = "Available items";
             // 
+            // buttonSyncApi
+            // 
+            buttonSyncApi.Location = new Point(543, 131);
+            buttonSyncApi.Name = "buttonSyncApi";
+            buttonSyncApi.Size = new Size(148, 23);
+            buttonSyncApi.TabIndex = 52;
+            buttonSyncApi.Text = "Sync from API";
+            buttonSyncApi.UseVisualStyleBackColor = true;
+            buttonSyncApi.Click += buttonSyncApi_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -710,5 +722,6 @@
         private Button buttonAddGame;
         private Label labelCart;
         private Label labelProducts;
+        private Button buttonSyncApi;
     }
 }
