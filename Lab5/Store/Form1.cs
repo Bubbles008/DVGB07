@@ -404,11 +404,11 @@ namespace Store
 
         if (updated)
         {
-            MessageBox.Show("Products updated from API successfully.");
+            MessageBox.Show("Products successfully updated from API");
         }
         else
         {
-            MessageBox.Show("No matching products were found in the API.");
+            MessageBox.Show("No matching products were found in the API");
         }
     }
     catch (Exception ex)

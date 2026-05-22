@@ -30,7 +30,7 @@ public bool UpdateProductsFromApi(XDocument xmlData, List<Product> localProducts
 
     if (productsElement == null)
     {
-        throw new Exception("Products section not found in API response.");
+        throw new Exception("Products not found in API");
     }
 
     bool updatedAnyProduct = false;
