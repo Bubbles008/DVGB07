@@ -393,20 +393,27 @@ namespace Store
             MessageBox.Show("Game added successfully");
         }
 
-        private async void buttonSyncApi_Click(object sender, EventArgs e)
+      private async void buttonSyncApi_Click(object sender, EventArgs e)
 {
     try
     {
         var xmlData = await apiHandler.GetApiDataAsync();
-        apiHandler.UpdateProductsFromApi(xmlData, storeManager.Products);
+        bool updated = apiHandler.UpdateProductsFromApi(xmlData, storeManager.Products);
 
         UpdateProductLists();
 
-        MessageBox.Show("Products updated from API successfully");
+        if (updated)
+        {
+            MessageBox.Show("Products updated from API successfully.");
+        }
+        else
+        {
+            MessageBox.Show("No matching products were found in the API.");
+        }
     }
     catch (Exception ex)
     {
-        MessageBox.Show("Error fetching API data: " + ex.Message);
+        MessageBox.Show("Error while fetching API data: " + ex.Message);
     }
 }
     }
