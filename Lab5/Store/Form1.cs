@@ -402,11 +402,11 @@ namespace Store
 
         UpdateProductLists();
 
-        MessageBox.Show("Products updated from API successfully.");
+        MessageBox.Show("Products updated from API successfully");
     }
     catch (Exception ex)
     {
-        MessageBox.Show("Error while fetching API data: " + ex.Message);
+        MessageBox.Show("Error fetching API data: " + ex.Message);
     }
 }
     }

@@ -20,6 +20,12 @@ namespace Store.Logic
 
         public void UpdateProductsFromApi(XDocument xmlData, List<Product> localProducts)
         {
+            XElement? errorElement = xmlData.Root?.Element("error");
+            if (errorElement != null)
+            {
+                throw new Exception(errorElement.Value);
+            }
+
             XElement? productsElement = xmlData.Root?.Element("products");
 
             if (productsElement == null)
